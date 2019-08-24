@@ -1,0 +1,9 @@
+{
+  "screenshotsFolder": "/results/screenshots/",
+  "videosFolder": "/results/videos/",
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "/results/cypress.xml",
+    "toConsole": true
+  }
+}

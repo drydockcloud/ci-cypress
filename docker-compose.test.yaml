@@ -1,0 +1,13 @@
+version: "3"
+
+# Base image test, used by Docker Hub.
+services:
+  web:
+    image: drydockcloud/tools-ci-web:latest
+
+  sut:
+    image: drydockcloud/ci-cypress:latest
+    build: .
+    command: autotest
+    depends_on:
+      - web

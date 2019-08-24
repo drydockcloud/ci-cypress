@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  # Example docker-compose service for cypress:
+  cypress:
+    image: drydockcloud/ci-cypress:latest
+    command: autotest
+    volumes:
+      - ./tests/gemini:/src
+      - ./results:/results
+    # Optional - uncomment following 3 lines to provide X11 access for interative use:
+    #  - /tmp/.X11-unix:/tmp/.X11-unix
+    #environment:
+    #  - DISPLAY
+    # To use the above, run the following before starting docker-compose:
+    #  OS X:
+    #   IP=$(ipconfig getifaddr en0)
+    #   /usr/X11/bin/xhost + $IP
+    #   DISPLAY=$IP:0
+    #  GNU/Linux:
+    #   xhost +local:
+    depends_on:
+      - web
