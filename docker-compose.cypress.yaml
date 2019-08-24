@@ -6,8 +6,8 @@ services:
     image: drydockcloud/ci-cypress:latest
     command: autotest
     volumes:
-      - ./tests/gemini:/src
-      - ./results:/results
+      - ./tests/cypress:/src
+      - ./results/cypress:/results
     # Optional - uncomment following 3 lines to provide X11 access for interative use:
     #  - /tmp/.X11-unix:/tmp/.X11-unix
     #environment:
