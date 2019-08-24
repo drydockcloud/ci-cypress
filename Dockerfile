@@ -1,7 +1,7 @@
 FROM cypress/included:3.4.1
 
 # Drydock environment setup
-LABEL exposed.command.single=hello
+LABEL exposed.command.single=cypress
 ENV TARGET=http://web
 VOLUME ["/src"]
 WORKDIR /src
