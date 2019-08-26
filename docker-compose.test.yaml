@@ -6,7 +6,6 @@ services:
     image: drydockcloud/tools-ci-web:latest
 
   sut:
-    image: drydockcloud/ci-cypress:latest
     build: .
     command: autotest
     depends_on:
