@@ -6,6 +6,10 @@ ENV TARGET=http://web
 VOLUME ["/src"]
 WORKDIR /src
 
+# Ensure the binary cache folder is accessible even as non-root
+ENV CYPRESS_CACHE_FOLDER=/etc/Cypress
+RUN mv /root/.cache/Cypress/ /etc
+
 # Copy in sample files for base image testing
 COPY cypress.json /src/
 COPY smoketest.js /src/cypress/integration/
