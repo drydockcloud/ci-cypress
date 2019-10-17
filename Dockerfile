@@ -1,5 +1,9 @@
 FROM cypress/included:3.4.1
 
+# Install Cypress Drupal package for handling logins and drush in tests.
+# https://github.com/epicflux/cypress-drupal
+RUN npm install -g cypress-drupal
+
 # Drydock environment setup
 LABEL exposed.command.single=cypress
 ENV TARGET=http://web
