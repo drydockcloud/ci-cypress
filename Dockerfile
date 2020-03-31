@@ -1,4 +1,4 @@
-FROM cypress/included:3.4.1
+FROM cypress/included:4.3.0
 
 # Drydock environment setup
 LABEL exposed.command.single=cypress
