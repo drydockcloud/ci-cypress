@@ -1,4 +1,4 @@
-FROM cypress/included:9.7.0
+FROM cypress/included:11.2.0
 
 # Drydock environment setup
 LABEL exposed.command.single=cypress
@@ -11,11 +11,11 @@ ENV CYPRESS_CACHE_FOLDER=/etc/Cypress
 RUN mv /root/.cache/Cypress/ /etc
 
 # Copy in sample files for base image testing
-COPY cypress.json /src/
-COPY smoketest.js /src/cypress/integration/
+COPY cypress.config.js /src/
+COPY smoketest.cy.js /src/cypress/e2e/
 
 # Install Cypress plugins
-RUN yarn add --cwd ../ axe-core cypress-axe@0.14.0
+RUN yarn add --cwd ../ axe-core cypress-axe
 RUN yarn add --cwd ../ @testing-library/cypress
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
