@@ -17,6 +17,9 @@ COPY smoketest.cy.js /src/cypress/e2e/
 # Install Cypress plugins
 RUN yarn add --cwd ../ axe-core cypress-axe
 RUN yarn add --cwd ../ @testing-library/cypress
+RUN yarn add --cwd ../ cypress-real-events
+RUN yarn add --cwd ../ cypress-file-upload
+RUN yarn add --cwd ../ cypress-downloadfile
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
