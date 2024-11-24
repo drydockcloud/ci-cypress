@@ -16,7 +16,7 @@ COPY smoketest.cy.js /src/cypress/e2e/
 
 # Install Cypress plugins
 RUN yarn add --cwd ../ axe-core cypress-axe
-RUN yarn add --cwd ../ @testing-library/cypress
+RUN yarn add --cwd ../ @testing-library/cypress@9.0.0
 RUN yarn add --cwd ../ cypress-real-events
 RUN yarn add --cwd ../ cypress-file-upload
 RUN yarn add --cwd ../ cypress-downloadfile
