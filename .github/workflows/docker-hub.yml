@@ -9,6 +9,9 @@ jobs:
     name: Push Docker image to drydockcloud/ci-cypress in Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
