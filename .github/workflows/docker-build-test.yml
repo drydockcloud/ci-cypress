@@ -24,7 +24,7 @@ jobs:
         with:
           images: drydockcloud/ci-cypress
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           platforms: linux/amd64,linux/arm64
