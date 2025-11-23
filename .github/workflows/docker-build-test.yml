@@ -1,6 +1,6 @@
 name: Test Building Docker image
 permissions:
-  content: read
+  contents: read
 
 on: [pull_request]
 
