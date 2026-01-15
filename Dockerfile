@@ -20,6 +20,7 @@ RUN yarn add --cwd ../ @testing-library/cypress
 RUN yarn add --cwd ../ cypress-real-events
 RUN yarn add --cwd ../ cypress-file-upload
 RUN yarn add --cwd ../ cypress-downloadfile
+RUN yarn add --cwd ../ cypress-iframe
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
