@@ -15,6 +15,7 @@ COPY cypress.config.js /src/
 COPY smoketest.cy.js /src/cypress/e2e/
 
 # Install Cypress plugins
+RUN npm cache clean --force
 RUN npm install --prefix ../ axe-core cypress-axe
 RUN npm install --prefix ../ @testing-library/cypress
 RUN npm install --prefix ../ cypress-real-events
