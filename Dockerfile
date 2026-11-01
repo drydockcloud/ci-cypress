@@ -14,14 +14,20 @@ RUN mv /root/.cache/Cypress/ /etc
 COPY cypress.config.js /src/
 COPY smoketest.cy.js /src/cypress/e2e/
 
-# Install Cypress plugins
-RUN npm cache clean --force
-RUN npm install --prefix ../ axe-core cypress-axe
-RUN npm install --prefix ../ @testing-library/cypress
-RUN npm install --prefix ../ cypress-real-events
-RUN npm install --prefix ../ cypress-file-upload
-RUN npm install --prefix ../ cypress-downloadfile
-RUN npm install --prefix ../ cypress-iframe
+# npm 11 fails with "Tracker idealTree already exists" when installing in /, so install
+# elsewhere and symlink to /node_modules so specs in /src still resolve the plugins.
+RUN mkdir -p /opt/plugins \
+    && cd /opt/plugins \
+    && npm init -y \
+    && npm install --legacy-peer-deps \
+        axe-core \
+        cypress-axe \
+        @testing-library/cypress \
+        cypress-real-events \
+        cypress-file-upload \
+        cypress-downloadfile \
+        cypress-iframe \
+    && ln -s /opt/plugins/node_modules /node_modules
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
