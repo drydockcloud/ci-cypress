@@ -15,12 +15,12 @@ COPY cypress.config.js /src/
 COPY smoketest.cy.js /src/cypress/e2e/
 
 # Install Cypress plugins
-RUN yarn add --cwd ../ axe-core cypress-axe
-RUN yarn add --cwd ../ @testing-library/cypress
-RUN yarn add --cwd ../ cypress-real-events
-RUN yarn add --cwd ../ cypress-file-upload
-RUN yarn add --cwd ../ cypress-downloadfile
-RUN yarn add --cwd ../ cypress-iframe
+RUN npm install --prefix ../ axe-core cypress-axe
+RUN npm install --prefix ../ @testing-library/cypress
+RUN npm install --prefix ../ cypress-real-events
+RUN npm install --prefix ../ cypress-file-upload
+RUN npm install --prefix ../ cypress-downloadfile
+RUN npm install --prefix ../ cypress-iframe
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
